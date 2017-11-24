@@ -1,0 +1,6 @@
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\bin\Debug\OSGB36.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\bin\Debug\OSGB36.pdb
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\obj\Debug\OSGB36.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\obj\Debug\OSGB36.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\obj\Debug\OSGB36.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36\obj\Debug\OSGB36.pdb
