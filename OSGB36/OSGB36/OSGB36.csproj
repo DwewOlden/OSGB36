@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\CoordinateExtensions.cs" />
+    <Compile Include="Coordinate\CoordinateSupport.cs" />
+    <Compile Include="Interfaces\ICoodrinateSupport.cs" />
+    <Compile Include="Interfaces\ICoordinate.cs" />
     <Compile Include="Interfaces\IShift.cs" />
     <Compile Include="Interfaces\IShifts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
