@@ -96,6 +96,7 @@ namespace OSGB36.ShiftSystem
                         return false;
 
                     line = mReader.ReadLine();
+
                 }
                 
                 return true;
