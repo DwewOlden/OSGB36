@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CoordinateExtensions.cs" />
+    <Compile Include="Interfaces\IShift.cs" />
+    <Compile Include="Interfaces\IShifts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShiftSystem\Shift.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

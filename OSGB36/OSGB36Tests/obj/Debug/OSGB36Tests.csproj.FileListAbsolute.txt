@@ -1,0 +1,15 @@
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\NUnit3.TestAdapter.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\nunit.engine.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\nunit.engine.api.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\Mono.Cecil.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\OSGB36Tests.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\OSGB36Tests.pdb
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\nunit.framework.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\nunit.framework.xml
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.pdb
