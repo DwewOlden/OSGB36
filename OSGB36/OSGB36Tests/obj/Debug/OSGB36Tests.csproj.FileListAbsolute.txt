@@ -13,3 +13,5 @@ C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.csp
 C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.dll
 C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\obj\Debug\OSGB36Tests.pdb
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\OSGB36.dll
+C:\Users\Andrew\Source\Repos\OSGB36\OSGB36\OSGB36Tests\bin\Debug\OSGB36.pdb

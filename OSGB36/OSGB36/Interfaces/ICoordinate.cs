@@ -11,6 +11,6 @@ namespace OSGB36.Interfaces
     /// </summary>
     public interface ICoordinate
     {
-
+        
     }
 }
