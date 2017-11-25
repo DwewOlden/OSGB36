@@ -86,11 +86,6 @@ namespace OSGB36.ShiftSystem
 
                 while (line != null)
                 {
-                    if (line.StartsWith("876950"))
-                    {
-                        int paws = 0;
-                    }
-
                     bool lineProcessedOK = ProcessALine(line);
                     if (!lineProcessedOK)
                         return false;
