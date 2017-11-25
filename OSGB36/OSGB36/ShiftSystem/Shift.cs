@@ -43,6 +43,29 @@ namespace OSGB36.ShiftSystem
         public float Height { get { return _h; } }
 
         /// <summary>
+        /// Defaut constructor
+        /// </summary>
+        public Shift()
+        {
+            _e = 0;
+            _n = 0;
+            _h = 0;
+        }
+
+        /// <summary>
+        /// Overloaded constructor, populates the object with the passed value
+        /// </summary>
+        /// <param name="pEastshift">The shift in easting</param>
+        /// <param name="pNorthShift">The shift in northing</param>
+        /// <param name="pHeightShift">The shift in height</param>
+        public Shift(float pEastshift, float pNorthShift,float pHeightShift)
+        {
+            _e = pEastshift;
+            _n = pNorthShift;
+            _h = pHeightShift;
+        }
+
+        /// <summary>
         /// Output the shift information as a formatted string
         /// </summary>
         /// <returns></returns>
