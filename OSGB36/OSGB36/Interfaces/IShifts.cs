@@ -11,6 +11,9 @@ namespace OSGB36.Interfaces
     /// </summary>
     public interface IShifts:IEnumerable<IShift>
     {
+
+        IShift this[int pIndex] { get; }
+
         /// <summary>
         /// Loads the information about the shifts from a file on disk
         /// </summary>

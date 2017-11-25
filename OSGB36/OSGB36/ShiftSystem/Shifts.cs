@@ -29,6 +29,16 @@ namespace OSGB36.ShiftSystem
         /// </summary>
         private int mElementsCount = -1;
 
+
+        public IShift this[int pIndex]
+        {
+            get
+            {
+                ValidateIndex(pIndex);
+                return mElements[pIndex];
+            }
+        }
+
         /// <summary>
         /// Gets the easting value from the member with the passed index
         /// </summary>
@@ -48,7 +58,7 @@ namespace OSGB36.ShiftSystem
         public float GetHeightValue(int pIndex)
         {
             ValidateIndex(pIndex);
-            return mElements[pIndex].Easting;
+            return mElements[pIndex].Height;
         }
 
         /// <summary>
@@ -59,7 +69,7 @@ namespace OSGB36.ShiftSystem
         public float GetNorthingValue(int pIndex)
         {
             ValidateIndex(pIndex);
-            return mElements[pIndex].Easting;
+            return mElements[pIndex].Northing;
         }
 
         /// <summary>
@@ -74,9 +84,9 @@ namespace OSGB36.ShiftSystem
                 return false;
             else
             {
-                
+
                 // Note the odd number, this is to remain consistent with the OS documention on this subject.
-                mElements = new IShift[OSTN02_ELEMENTS+1];
+                mElements = new IShift[OSTN02_ELEMENTS + 1];
                 return CompleteReadingOperation(pFilename);
             }
         }
@@ -91,12 +101,15 @@ namespace OSGB36.ShiftSystem
             try
             {
                 BinaryReader reader = new BinaryReader(File.Open(pFilename, FileMode.Open));
+                mElementsCount++;
+
                 if (reader.BaseStream.CanRead)
                 {
                     for (int Index = 1; Index <= OSTN02_ELEMENTS; Index++)
                     {
                         Shift s = new Shift(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
                         mElements[Index] = s;
+                        mElementsCount++;
                     }
                 }
                 else
@@ -104,7 +117,8 @@ namespace OSGB36.ShiftSystem
 
                 return true;
 
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -131,7 +145,7 @@ namespace OSGB36.ShiftSystem
         /// <param name="pIndex">The index we are checking for</param>
         private void ValidateIndex(int pIndex)
         {
-            if (pIndex >= this.mElementsCount)
+            if (pIndex > this.mElementsCount)
                 throw new ArgumentOutOfRangeException("pIndex", "the reqested index exceeds the the number of elements in the collection");
         }
     }

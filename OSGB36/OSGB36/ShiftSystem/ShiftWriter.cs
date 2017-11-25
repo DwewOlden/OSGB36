@@ -18,17 +18,17 @@ namespace OSGB36.ShiftSystem
         /// <summary>
         /// The column in the line containing the easting shift information
         /// </summary>
-        internal const int EASTING_INDEX = 4;
+        internal const int EASTING_INDEX = 3;
 
         /// <summary>
         /// The column in the line containing the northing shift information
         /// </summary>
-        internal const int NORTHING_INDEX = 5;
+        internal const int NORTHING_INDEX = 4;
 
         /// <summary>
         /// The column in the line containing the height shift information
         /// </summary>
-        internal const int HEIGHT_INDEX = 6;
+        internal const int HEIGHT_INDEX = 5;
 
         /// <summary>
         /// The number of columns in the text file
@@ -48,7 +48,7 @@ namespace OSGB36.ShiftSystem
         /// <summary>
         /// The name of the OS provided file containing the shift information
         /// </summary>
-        internal string mOSFilename = @"C:\temp\OSTN15_OSGM15_DataFile";
+        internal string mOSFilename = @"C:\temp\OSTN15_OSGM15_DataFile.txt";
 
         /// <summary>
         /// The name of the file where the shift information will be saved in binary format.
@@ -70,7 +70,7 @@ namespace OSGB36.ShiftSystem
                 throw new FileNotFoundException("the OS data file does not exist at the specified path");
 
             mReader = new StreamReader(mOSFilename);
-            mWriter = new BinaryWriter(File.Open(mProcessedFile, FileMode.CreateNew));
+            mWriter = new BinaryWriter(File.Open(mProcessedFile, FileMode.Create));
         }
 
         public bool ProcessOSSourceFile()
@@ -82,19 +82,26 @@ namespace OSGB36.ShiftSystem
                     return false;
 
                 line = mReader.ReadLine();
+                //WriteInitailEmptyRowInDataFile();
 
                 while (line != null)
                 {
+                    if (line.StartsWith("876950"))
+                    {
+                        int paws = 0;
+                    }
+
                     bool lineProcessedOK = ProcessALine(line);
                     if (!lineProcessedOK)
                         return false;
 
                     line = mReader.ReadLine();
                 }
-
-                return true;
                 
-            } catch (Exception)
+                return true;
+
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -102,6 +109,15 @@ namespace OSGB36.ShiftSystem
             {
                 CloseIOStreams();
             }
+        }
+
+        private void WriteInitailEmptyRowInDataFile()
+        {
+            Single tempSingle = 0;
+            mWriter.Write(tempSingle);
+            mWriter.Write(tempSingle);
+            mWriter.Write(tempSingle);
+            mWriter.Flush();
         }
 
         /// <summary>

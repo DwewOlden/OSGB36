@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Coordinae_Support_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shift_Reader_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
