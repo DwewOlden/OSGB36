@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShiftSystem\Shift.cs" />
     <Compile Include="ShiftSystem\Shifts.cs" />
+    <Compile Include="ShiftSystem\ShiftWriter.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
