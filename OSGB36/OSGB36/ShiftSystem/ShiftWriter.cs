@@ -82,8 +82,7 @@ namespace OSGB36.ShiftSystem
                     return false;
 
                 line = mReader.ReadLine();
-                //WriteInitailEmptyRowInDataFile();
-
+               
                 while (line != null)
                 {
                     bool lineProcessedOK = ProcessALine(line);
@@ -91,11 +90,9 @@ namespace OSGB36.ShiftSystem
                         return false;
 
                     line = mReader.ReadLine();
-
                 }
                 
                 return true;
-
             }
             catch (Exception)
             {
@@ -105,15 +102,6 @@ namespace OSGB36.ShiftSystem
             {
                 CloseIOStreams();
             }
-        }
-
-        private void WriteInitailEmptyRowInDataFile()
-        {
-            Single tempSingle = 0;
-            mWriter.Write(tempSingle);
-            mWriter.Write(tempSingle);
-            mWriter.Write(tempSingle);
-            mWriter.Flush();
         }
 
         /// <summary>
