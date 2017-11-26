@@ -176,9 +176,9 @@ namespace OSGB36.ShiftSystem
             double t = dX / 1000;
             double u = dY / 1000;
 
-            double eS = ((1 - t) * (1 - u) * (s0.Easting)) + ((t) * (1 - u) * s1.Easting) + ((t) * (u) * s2.Easting) + ((1 - t) * (u) * s3.Easting);
-            double nS = ((1 - t) * (1 - u) * (s0.Northing)) + ((t) * (1 - u) * s1.Northing) + ((t) * (u) * s2.Northing) + ((1 - t) * (u) * s3.Northing);
-            double hS = ((1 - t) * (1 - u) * (s0.Height)) + ((t) * (1 - u) * s0.Height) + ((t) * (u) * s0.Height) + ((1 - t) * (u) * s0.Height);
+            double eS = Math.Round(((1 - t) * (1 - u) * (s0.Easting)) + ((t) * (1 - u) * s1.Easting) + ((t) * (u) * s2.Easting) + ((1 - t) * (u) * s3.Easting),5);
+            double nS = Math.Round(((1 - t) * (1 - u) * (s0.Northing)) + ((t) * (1 - u) * s1.Northing) + ((t) * (u) * s2.Northing) + ((1 - t) * (u) * s3.Northing),5);
+            double hS = Math.Round(((1 - t) * (1 - u) * (s0.Height)) + ((t) * (1 - u) * s1.Height) + ((t) * (u) * s2.Height) + ((1 - t) * (u) * s3.Height),5);
 
             return new Shift((float)eS, (float)nS, (float)hS);
         }

@@ -31,9 +31,7 @@ namespace OSGB36Tests
             double h = 100.000;
 
             ICoodrinateSupport q = new CoordinateSupport();
-            l = q.DegreeesToRadians(l);
-            l2 = q.DegreeesToRadians(l2);
-
+            
             ToOSGB36 b = new ToOSGB36(Shifts_,q);
             b.Calculate(l, l2, h);
             

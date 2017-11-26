@@ -73,7 +73,7 @@ namespace OSGB36.Coordinate
 
             _easting = Math.Round(pEasting,3);
             _northing = Math.Round(pNorthing,3);
-            _height = Math.Round(pHeight);
+            _height = Math.Round(pHeight,3);
         }
 
         public override string ToString()

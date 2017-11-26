@@ -50,9 +50,9 @@ namespace OSGB36.Calculator
         /// <param name="pVertical">The point on the vertical axis (northing or longtitude)</param>
         /// <param name="pHeight">The height to be converted</param>
         /// <returns>The location as a OSGB36 coordinate</returns>
-        public ICoordinate Calculate(double pHorizontal, double pVertical, double pHeight)
+        public ICoordinate Calculate(double pVertical, double pHorizontal, double pHeight)
         {
-            if (((pHorizontal < -2) || (pHorizontal > 8)) && ((pVertical < 50) || (pVertical > 60)))
+            if (((pHorizontal < -7) || (pHorizontal > 8)) && ((pVertical < 49) || (pVertical > 60)))
                 throw new ArgumentOutOfRangeException("the location falls outside of the bounds of the United Kingdom");
             else
                 return InternalCalculate(pHorizontal, pVertical, pHeight); 
@@ -68,8 +68,8 @@ namespace OSGB36.Calculator
         /// <returns>The location as a OSGB36 coordinate</returns>
         private ICoordinate InternalCalculate(double pHorizontal, double pVertical, double pHeight)
         {
-            double lat = mCoordinateSupport.DegreeesToRadians(pHorizontal);
-            double lon = mCoordinateSupport.DegreeesToRadians(pVertical);
+            double lat = mCoordinateSupport.DegreeesToRadians(pVertical);
+            double lon = mCoordinateSupport.DegreeesToRadians(pHorizontal);
             double ht = pHeight;
 
             double a = OSGB35Constants.a *=OSGB35Constants.f0;
