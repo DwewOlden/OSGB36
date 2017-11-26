@@ -91,7 +91,7 @@ namespace OSGB36.Coordinate
             {
                 EastingNorthing e = (EastingNorthing)obj;
                 if ((Math.Round(e._easting, 3) == Math.Round(_easting, 3)) && (Math.Round(e._northing, 3) == Math.Round(_northing, 3)) &&
-                    (Math.Round(e._height, 3) == Math.Round(_height, 3))
+                    (Math.Round(e._height, 3) == Math.Round(_height, 3)))
                     return true;
                 else
                     return false;
