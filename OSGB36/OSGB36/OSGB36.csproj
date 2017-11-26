@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Coordinate\CoordinateSupport.cs" />
     <Compile Include="Coordinate\EastingNorthing.cs" />
+    <Compile Include="Coordinate\LatLon.cs" />
     <Compile Include="Interfaces\ICoodrinateSupport.cs" />
     <Compile Include="Interfaces\ICoordinate.cs" />
     <Compile Include="Interfaces\IShift.cs" />
