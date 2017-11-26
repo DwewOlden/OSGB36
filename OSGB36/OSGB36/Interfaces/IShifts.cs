@@ -42,6 +42,16 @@ namespace OSGB36.Interfaces
         /// <returns>The height value of the required index</returns>
         float GetHeightValue(int pIndex);
 
+        /// <summary>
+        /// Uses the contents of the lookup shift calculator to retirece a interpolated
+        /// shift position.
+        /// </summary>
+        /// <param name="pLookupX">The x part of the coordinate</param>
+        /// <param name="pLookupY">The y part of the coodrinate</param>
+        /// <returns>A shift lookup or null if it is out of bounds / error occurs</returns>
+        IShift CalculateShift(double pLookupX, double pLookupY);
+
+
         
     }
 }

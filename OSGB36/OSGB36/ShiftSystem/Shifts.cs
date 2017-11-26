@@ -148,5 +148,47 @@ namespace OSGB36.ShiftSystem
             if (pIndex > this.mElementsCount)
                 throw new ArgumentOutOfRangeException("pIndex", "the reqested index exceeds the the number of elements in the collection");
         }
+
+        /// <summary>
+        /// Uses the contents of the lookup shift calculator to retirece a interpolated
+        /// shift position.
+        /// </summary>
+        /// <param name="pLookupX">The x part of the coordinate</param>
+        /// <param name="pLookupY">The y part of the coodrinate</param>
+        /// <returns>A shift lookup or null if it is out of bounds / error occurs</returns>
+        public IShift CalculateShift(double pLookupX, double pLookupY)
+        {
+            int eIndex = (int)(Math.Floor(pLookupX / 1000));
+            int nIndex = (int)(Math.Floor(pLookupY / 1000));
+            
+            Shift s0 = (Shift)LookupShift(eIndex, nIndex);             // shifts
+            Shift s1 = (Shift)LookupShift((eIndex + 1), nIndex);
+            Shift s2 = (Shift)LookupShift((eIndex + 1), (nIndex + 1));
+            Shift s3 = (Shift)LookupShift(eIndex, (nIndex + 1));
+
+            double X0 = 0, Y0 = 0;
+
+            X0 = eIndex * 1000;
+            Y0 = nIndex * 1000;
+
+            double dX = pLookupX - X0;
+            double dY = pLookupY - Y0;
+            double t = dX / 1000;
+            double u = dY / 1000;
+
+            double eS = ((1 - t) * (1 - u) * (s0.Easting)) + ((t) * (1 - u) * s1.Easting) + ((t) * (u) * s2.Easting) + ((1 - t) * (u) * s3.Easting);
+            double nS = ((1 - t) * (1 - u) * (s0.Northing)) + ((t) * (1 - u) * s1.Northing) + ((t) * (u) * s2.Northing) + ((1 - t) * (u) * s3.Northing);
+            double hS = ((1 - t) * (1 - u) * (s0.Height)) + ((t) * (1 - u) * s0.Height) + ((t) * (u) * s0.Height) + ((1 - t) * (u) * s0.Height);
+
+            return new Shift((float)eS, (float)nS, (float)hS);
+        }
+
+        private IShift LookupShift(int ei, int ni)
+        {
+            // Calculate the index in the shift array that will provide the information 
+            // required
+            int record_number = (ei + (ni * 701) + 1);
+            return this[record_number];
+        }
     }
 }
