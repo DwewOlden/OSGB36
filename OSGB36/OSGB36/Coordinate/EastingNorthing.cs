@@ -68,14 +68,17 @@ namespace OSGB36.Coordinate
         /// <param name="pHeight">The height above sea level of the location</param>
         public EastingNorthing(double pEasting,double pNorthing,double pHeight)
         {
-            _easting = pEasting;
-            _northing = pNorthing;
-            _height = pHeight;
+            // Round the the locations down to 3 decimal places - that will be mm level
+            // as the major component are meters.
+
+            _easting = Math.Round(pEasting,3);
+            _northing = Math.Round(pNorthing,3);
+            _height = Math.Round(pHeight);
         }
 
         public override string ToString()
         {
-            return string.Format("Easting:{0} Northing{1} Height{2}", _easting, _northing, _height);
+            return string.Format("Easting:{0} Northing:{1} Height:{2}", _easting, _northing, _height);
         }
 
         public override int GetHashCode()
