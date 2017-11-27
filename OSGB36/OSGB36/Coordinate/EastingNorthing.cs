@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSGB36.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace OSGB36.Coordinate
     /// The OSGB36 is national (UK) cartesian coordinate system and represents the distance in meters from a fixed point 
     /// in metert in each direction (East and North). The height is also metric.
     /// </summary>
-    public class EastingNorthing
+    public class EastingNorthing:ICoordinate
     {
         /// <summary>
         /// The distance in meters east of the reference point.

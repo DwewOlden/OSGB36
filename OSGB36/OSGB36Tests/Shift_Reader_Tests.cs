@@ -13,6 +13,7 @@ namespace OSGB36Tests
     /// Tests that check the reading (and in effect) the writing of the shift information is correct.
     /// </summary>
     [TestFixture]
+    [SingleThreaded]
     public class Shift_Reader_Tests
     {
         IShifts Shifts_ = null;

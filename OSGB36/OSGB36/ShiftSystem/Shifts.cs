@@ -98,9 +98,11 @@ namespace OSGB36.ShiftSystem
         /// <returns>True if the method was loaded successfully, false if it was not</returns>
         private bool CompleteReadingOperation(string pFilename)
         {
+            BinaryReader reader = null;
+
             try
             {
-                BinaryReader reader = new BinaryReader(File.Open(pFilename, FileMode.Open));
+                reader = new BinaryReader(File.Open(pFilename, FileMode.Open));
                 mElementsCount++;
 
                 if (reader.BaseStream.CanRead)
@@ -115,12 +117,20 @@ namespace OSGB36.ShiftSystem
                 else
                     return false;
 
+                
                 return true;
 
             }
             catch (Exception)
             {
                 return false;
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                reader.Dispose();
+                reader = null;
             }
         }
 

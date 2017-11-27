@@ -18,7 +18,7 @@ namespace OSGB36.Calculator
 
         private IShifts mShifts;
 
-        public ToOSGB36(IShifts pShifts,ICoodrinateSupport pCoordinateSupport)
+        public ToOSGB36(IShifts pShifts, ICoodrinateSupport pCoordinateSupport)
         {
             mShifts = pShifts;
             mCoordinateSupport = pCoordinateSupport;
@@ -55,7 +55,7 @@ namespace OSGB36.Calculator
             if (((pHorizontal < -7) || (pHorizontal > 8)) && ((pVertical < 49) || (pVertical > 60)))
                 throw new ArgumentOutOfRangeException("the location falls outside of the bounds of the United Kingdom");
             else
-                return InternalCalculate(pHorizontal, pVertical, pHeight); 
+                return InternalCalculate(pHorizontal, pVertical, pHeight);
 
         }
 
@@ -72,8 +72,10 @@ namespace OSGB36.Calculator
             double lon = mCoordinateSupport.DegreeesToRadians(pHorizontal);
             double ht = pHeight;
 
-            double a = OSGB35Constants.a *=OSGB35Constants.f0;
-            double b = OSGB35Constants.b *= OSGB35Constants.f0;
+            double a = OSGB35Constants.a;
+            a *= OSGB35Constants.f0;
+            double b = OSGB35Constants.b;
+            b *= OSGB35Constants.f0;
 
             double n = (a - b) / (a + b);
             double e2 = ((a * a) - (b * b)) / (a * a);
@@ -102,15 +104,15 @@ namespace OSGB36.Calculator
             double y = I + (Math.Pow(P, 2.0) * II) + (Math.Pow(P, 4.0) * III) + (Math.Pow(P, 6.0) * IIIA);
             double x = OSGB35Constants.e0 + (P * IV) + (Math.Pow(P, 3.0) * V) + (Math.Pow(P, 5.0) * VI);
 
-            Shift s =  (Shift)mShifts.CalculateShift(x, y);
+            Shift s = (Shift)mShifts.CalculateShift(x, y);
 
             double lLat = x + s.Easting;
             double lLon = y + s.Northing;
             double lHeight = pHeight - s.Height;
 
             EastingNorthing x1 = new EastingNorthing(lLat, lLon, lHeight);
-            return (ICoordinate)x1;
-            
+            return x1;
+
         }
 
         /// <summary>
@@ -121,7 +123,7 @@ namespace OSGB36.Calculator
         /// <param name="n">Ratio of the ellipsode difference</param>
         /// <param name="b">Ellipsode axis value by scaling value</param>
         /// <returns>The meriden arc value</returns>
-        private double ComputeMeridanArc(double dLat,double sLat,double n,double b)
+        private double ComputeMeridanArc(double dLat, double sLat, double n, double b)
         {
             double M;                       // compute Meridian arc (eqn 8.1 [1])
             M = ((1 + n + ((5 * n * n) / 4) + ((5 * n * n * n) / 4)) * dLat) -
