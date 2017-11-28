@@ -142,6 +142,8 @@ namespace OSGB36.Calculator
             double k1 = latEst - (y * y * VII) + (Math.Pow(y, 4.0) * VIII) - (Math.Pow(y, 6.0) * IX);
             double k2 = OSGB35Constants.lon0 + (y * X) - (Math.Pow(y, 3.0) * XI) + (Math.Pow(y, 5.0) * XII) - (Math.Pow(y, 7.0) * XIIA);
             double k3 = pHeight + ht_dif;
+            
+            
             // [TestCase(49.92226393730, -6.29977752014, 100.000, 91492.146, 11318.804, 46.519)]
         double xr1 = mCoordinateSupport.RadiansToDegrees(k1);
             double xr2 = mCoordinateSupport.RadiansToDegrees(k2);
