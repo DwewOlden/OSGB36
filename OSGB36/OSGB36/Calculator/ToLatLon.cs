@@ -97,7 +97,7 @@ namespace OSGB36.Calculator
 
                 iterations = iterations + 1;
 
-            } while ((iterations < 20) && ((Math.Abs(diff) > 0.00001)) || (Math.Abs(diffn) > 0.00001));
+            } while ((iterations < 30) && ((Math.Abs(diff) > 0.00001)) || (Math.Abs(diffn) > 0.00001));
 
             double a = OSGB35Constants.a;
             a *= OSGB35Constants.f0;
@@ -121,7 +121,7 @@ namespace OSGB36.Calculator
                 latNew = ((N - OSGB35Constants.n0 - M) / a) + latEst;
                 latEst = latNew;
                 diff = N - OSGB35Constants.n0 - M;
-            } while ((iterations++ < 10) && (diff > 0.00001));
+            } while ((iterations++ < 30) && (diff > 0.000001));
 
             double nu = (a / Math.Pow(1 - e2 * Math.Pow(Math.Sin(latEst), 2.0), 0.5));
             double rho = ((a * (1 - e2)) / Math.Pow(1 - e2 * Math.Pow(Math.Sin(latEst), 2.0), 1.5));

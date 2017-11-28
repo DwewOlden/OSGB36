@@ -124,8 +124,8 @@ namespace OSGB36Tests
             LatLon Outcome = (LatLon)k.Calculate(f, e, g);
             LatLon Expected = new LatLon(a, b, c);
 
-            Assert.AreEqual(Expected.Latitude, Outcome.Latitude, 0.01);
-            Assert.AreEqual(Expected.Longtitude, Outcome.Longtitude, 0.01);
+            Assert.AreEqual(Expected.Latitude, Outcome.Latitude, 0.0001);
+            Assert.AreEqual(Expected.Longtitude, Outcome.Longtitude, 0.0001);
             Assert.AreEqual(Expected.Height, Outcome.Height, 0.01);
         }
 
