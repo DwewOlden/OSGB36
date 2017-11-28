@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\MeridianArc.cs" />
+    <Compile Include="Calculator\ToLatLon.cs" />
     <Compile Include="Calculator\ToOSGB36.cs" />
     <Compile Include="CoordinateTypeException.cs" />
     <Compile Include="Coordinate\CoordinateSupport.cs" />

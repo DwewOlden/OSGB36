@@ -74,9 +74,9 @@ namespace OSGB36.Coordinate
             // Round the the locations down to 5 decimal places - that will be mm level
             // as the major component are meters. Thats why its in a different class.
 
-            _latitude = Math.Round(pLatitude, 5);
-            _longtitude = Math.Round(pLongtitude, 5);
-            _height = Math.Round(pHeight);
+            _latitude = Math.Round(pLatitude,8);
+            _longtitude = Math.Round(pLongtitude,8);
+            _height = Math.Round(pHeight,3);
         }
 
         public override string ToString()

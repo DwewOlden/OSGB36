@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace OSGB36.Calculator
 {
     /// <summary>
-    /// Code to perform the calculation from easting to northing
+    /// Code to perform the calculation from lat-lon to easting-northing
     /// </summary>
     public class ToOSGB36 : ICalculationMethod
     {
@@ -37,7 +37,7 @@ namespace OSGB36.Calculator
             else
             {
                 LatLon p = (LatLon)pCoordinate;
-                return Calculate(p);
+                return Calculate(p.Latitude,p.Longtitude,p.Height);
             }
 
 
@@ -56,7 +56,6 @@ namespace OSGB36.Calculator
                 throw new ArgumentOutOfRangeException("the location falls outside of the bounds of the United Kingdom");
             else
                 return InternalCalculate(pHorizontal, pVertical, pHeight);
-
         }
 
         /// <summary>
@@ -86,7 +85,7 @@ namespace OSGB36.Calculator
             double dLat = lat - OSGB35Constants.lat0;      // difference in latitude
             double sLat = lat + OSGB35Constants.lat0;      // sum of latitude
 
-            double M = ComputeMeridanArc(dLat, sLat, n, b);
+            double M = MeridianArc.ComputeMeridanArc(dLat, sLat, n, b);
 
             double P = lon - OSGB35Constants.lon0;          // difference in longitude
 
@@ -113,27 +112,6 @@ namespace OSGB36.Calculator
             EastingNorthing x1 = new EastingNorthing(lLat, lLon, lHeight);
             return x1;
 
-        }
-
-        /// <summary>
-        /// Computes the meridan arc value
-        /// </summary>
-        /// <param name="dLat">The difference of latitude value</param>
-        /// <param name="sLat">The sum of latitude value</param>
-        /// <param name="n">Ratio of the ellipsode difference</param>
-        /// <param name="b">Ellipsode axis value by scaling value</param>
-        /// <returns>The meriden arc value</returns>
-        private double ComputeMeridanArc(double dLat, double sLat, double n, double b)
-        {
-            double M;                       // compute Meridian arc (eqn 8.1 [1])
-            M = ((1 + n + ((5 * n * n) / 4) + ((5 * n * n * n) / 4)) * dLat) -
-                   (((3 * n) + (3 * n * n) + ((21 * n * n * n) / 8)) * Math.Sin(dLat) * Math.Cos(sLat)) +
-                   ((((15 * n * n) / 8) + ((15 * n * n * n) / 8)) * Math.Sin(2 * dLat) * Math.Cos(2 * sLat)) -
-                   (((35 * n * n * n) / 24) * Math.Sin(3 * dLat) * Math.Cos(3 * sLat));
-
-            M *= b;
-
-            return M;
         }
     }
 }
